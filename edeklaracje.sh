@@ -100,7 +100,7 @@ echo -ne "\nUruchamiam kontener $CONTAINER_NAME...\n"
 # http://stackoverflow.com/questions/22944631/how-to-get-the-ip-address-of-the-docker-host-from-inside-a-docker-container
 HOST_IP_DEV=`/sbin/ip route|awk '/default/ { print $5 }'`
 HOST_IP=`/sbin/ip -4 addr show $HOST_IP_DEV | grep -Po 'inet \K[\d.]+'`
-docker run --rm -ti \
+docker run --rm -ti --cap-add=SYS_PTRACE\
   -v "$XSOCK":"$XSOCK" \
   -v "$HOME/.appdata":"$HOME/.appdata" \
   -e EDEKLARACJE_USER="$USER" \
