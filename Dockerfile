@@ -36,7 +36,8 @@ ADD cups_client.conf /etc/cups/client.conf
 # UWAGA - pamiętaj o zmienie konfiguracji CUPS hosta zgodnie z opisem
 
 # ADD, bo inaczej nie ma jak zaktualizować edeklaracji aby pobrać nowe formularze
-ADD http://www.finanse.mf.gov.pl/documents/766655/1196444/e-DeklaracjeDesktop.air /opt/edeklaracje.air
+# (wersja: 11.0.1, md5sum: 7b93c28ff5f5b2d5949452ad1db8a08a, ostatni update linku: 27.04.2019)
+ADD https://www.podatki.gov.pl/media/3103/e-deklaracjedesktop.air /opt/edeklaracje.air
 RUN xvfb-run '/opt/Adobe AIR/Versions/1.0/Adobe AIR Application Installer' -silent -eulaAccepted /opt/edeklaracje.air
 
 # reszta ustawień
